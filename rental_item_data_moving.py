@@ -1,4 +1,4 @@
-
+# FUNKTIOT RENTAL_ITEM_DIM-TAULUN DATAN HAKUUN JA TAULUN TÄYTTÖÖN (HUOM DIM-TAULU TYHJENNETÄÄN, KOSKA OHJELMAA AJETAAN USEAAN KERTAAN)
 # Importit
 from sqlalchemy import text
 
@@ -20,7 +20,7 @@ def _get_rental_items(_db):
 # rental_items_dim-taulun tyhjennys
 def _clear_rental_item_dim(_dw):
     try:
-        _query = text("DELETE * FROM rental_item_dim")
+        _query = text('DELETE * FROM rental_item_dim')
         _dw.execute(_query)
         _dw.commit()
     except Exception as e:
@@ -39,7 +39,7 @@ def rental_item_etl():
     with get_db(cnx_type='olap') as _dw:
         try:
             # datan tyhjennys TEE FUNKTIO
-            #_clear_rental_item_dim(_dw)
+            _clear_rental_item_dim(_dw)
 
             for item in items:
                 _query = text('INSERT INTO rental_item_dim'
