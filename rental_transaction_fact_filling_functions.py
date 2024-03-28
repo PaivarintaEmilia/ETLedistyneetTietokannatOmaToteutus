@@ -32,9 +32,9 @@ def _get_date_dims(_dw):
  # HAETAAN KAIKKI KEYT DIM-TAULUISTA
 
  # Haetaan keyt rental_item_dim-taulusta
-def _get_rental_item_key(oltp_item, items, key='id'):
+def _get_rental_item_key(oltp_item, items):
     for item in items:
-        if oltp_item[key] == item['rental_item_id']:
+        if oltp_item['rental_item_id'] == item['rental_item_id']:
             return item['item_key']
 
     return None
@@ -46,7 +46,7 @@ def _get_date_key(oltp_item, dates, key='created_at'):
     date = oltp_item[key]
     for d_dim in dates:
         if date.year == d_dim['year'] and date.month == d_dim['month'] and date.isocalendar().week == d_dim['week'
-        ] and date.minute == d_dim['minute'] and date.second == d_dim['second']:
+        ] and date.minute == d_dim['min'] and date.second == d_dim['sec']:
             return d_dim['date_key']
 
     return None
@@ -122,7 +122,7 @@ def rental_item_fact_etl():
          # Loopataan kaikki keyt
          for item in items:
              _date_key = _get_date_key(item, date_dims)
-             _item_key = _get_rental_item_key(item,rental_item_dims)
+             _item_key = _get_rental_item_key(item, rental_item_dims)
 
              if _date_key is None or _item_key is None:
                  continue
