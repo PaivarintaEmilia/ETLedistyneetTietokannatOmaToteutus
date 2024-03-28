@@ -20,7 +20,7 @@ def _get_rental_items(_db):
 # rental_items_dim-taulun tyhjennys
 def _clear_rental_item_dim(_dw):
     try:
-        _query = text('DELETE * FROM rental_item_dim')
+        _query = text("DELETE FROM rental_item_dim")
         _dw.execute(_query)
         _dw.commit()
     except Exception as e:

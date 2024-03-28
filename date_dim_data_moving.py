@@ -37,7 +37,7 @@ def _get_rental_items_dates(_db):
 
 # Funktio datan poistoa varten, kun ohjelmaa ajetaan useasti
 def _clear_dates(_dw):
-    _dw.execute(text('DELETE * FROM date_dim'))
+    _dw.execute(text('DELETE FROM date_dim'))
     _dw.commit()
 
 
@@ -66,7 +66,7 @@ def date_dim_etl():
         try:
 
             # Tyhjennetään dim-taulu aina ajon yhteydessä
-            #_clear_dates()
+            _clear_dates(_dw)
 
             # Datan lisäys date_dim tauluun
             _query = text('INSERT INTO date_dim(year, month, week, day, hour, min, sec) '
