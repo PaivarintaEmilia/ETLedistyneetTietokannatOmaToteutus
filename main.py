@@ -1,16 +1,20 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Täällä ei mitää muuta, kuin ohjelman toiminta konsolissa
+import date_dim_data_moving
+import rental_item_data_moving
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    # dim_taulujen täyttö
+    rental_item_data_moving.rental_item_etl()
+    #date_dim_data_moving.date_dim_etl()
+
+    # faktataulujen tyhjennykset
+
+
+
+    # faktataulujen täytöt
+
+
+# Tätä en ihan ymmärtänyt
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
