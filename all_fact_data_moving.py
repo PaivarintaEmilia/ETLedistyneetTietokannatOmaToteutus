@@ -59,7 +59,9 @@ def _get_date_key(oltp_item, dates, key='created_at'):
 
 
  # Taulun tyhjennys
-
+def _clear_rental_transaction_fact(_dw):
+    _dw.execute(text('DELETE FROM rental_transaction_fact'))
+    _dw.commit()
 
 
 # Datan siirto rental_transaction_fact-tauluun
@@ -109,7 +111,9 @@ def _get_rental_items_for_fact(_db):
 
 
 # Taulun tyhjennys
-
+def _clear_rental_item_fact(_dw):
+    _dw.execute(text('DELETE FROM rental_item_fact'))
+    _dw.commit()
 
 
 # Datan siirto rental_item_fact-tauluun
