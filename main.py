@@ -1,7 +1,7 @@
 # Täällä ei mitää muuta, kuin ohjelman toiminta konsolissa
 import date_dim_data_moving
 import rental_item_data_moving
-import rental_transaction_fact_filling_functions
+import all_fact_data_moving
 
 
 def main():
@@ -13,8 +13,9 @@ def main():
 
 
     # faktataulujen täytöt
-    rental_transaction_fact_filling_functions.rental_item_fact_etl()
-    rental_transaction_fact_filling_functions.rental_transaction_fact_etl()
+    #all_fact_data_moving.rental_item_fact_etl()
+    all_fact_data_moving.rental_transaction_fact_etl()
+    #all_fact_data_moving.rental_transaction_fact_etl()
 
 
 # Tätä en ihan ymmärtänyt
